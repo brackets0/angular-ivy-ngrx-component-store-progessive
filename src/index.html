@@ -1,0 +1,61 @@
+<h1 (click)="demo1 = !demo1">1. Shared State</h1>
+<div id="color-preview" class="aqua">aqua</div>
+<button id="aqua" class="active" onClick="changeColor('aqua')">aqua</button>
+<button id="orange" onClick="changeColor('orange')">orange</button>
+<button id="purple" onClick="changeColor('purple')">purple</button>
+
+<script>
+  var currentColor = 'aqua';
+  function changeColor(newColor) {
+    document.getElementById('color-preview').className = newColor;
+    document.getElementById(currentColor).className = '';
+    document.getElementById(newColor).className = 'active';
+    currentColor = newColor;
+  }
+</script>
+<style>
+  button {
+    max-width: 84px;
+    box-sizing: border-box;
+    display: block;
+  }
+  .active {
+    border: 3px solid #f4f4f4;
+    padding: calc(0.875rem - 3px) 60px calc(0.875rem - 3px) 13px;
+  }
+  #color-preview {
+    float: left;
+    padding: 1em;
+    margin-bottom: 1em;
+    width: 112px;
+    min-height: 112px;
+  }
+  #aqua,
+  .aqua {
+    background-color: darkturquoise;
+    color: #000;
+  }
+  #aqua:hover,
+  #purple:hover,
+  #orange:hover {
+    opacity: 0.8;
+  }
+  #purple,
+  .purple {
+    background-color: purple;
+    color: #f4f4f4;
+  }
+  #orange,
+  .orange {
+    background-color: orangered;
+    color: #000;
+  }
+  .loading {
+    background-color: #888;
+  }
+  .black {
+    background-color: #000;
+    color: #f4f4f4;
+  }
+</style>
+<my-app>loading</my-app>
